@@ -13,4 +13,6 @@ app.config.from_object(DevConfig)
 bootstrap = Bootstrap(app)
 fa = FontAwesome(app)
 
-from .main import views
+# Registering the blueprint - main
+from .main import main as main_blueprint
+app.register_blueprint(main_blueprint)

@@ -1,9 +1,12 @@
 from flask import render_template
-from app import app
+
+from . import main
 
 
 #Views
-@app.route('/')
+
+# home page
+@main.route('/')
 def index():
 
     '''
@@ -12,3 +15,14 @@ def index():
     
     title = 'Insights Today'
     return render_template('index.html', title=title)
+
+# sharepost page
+@main.route('/sharepost')
+def sharepost():
+
+    '''
+    View share post page function that returns the post sharing page and its data
+    '''
+    
+    title = 'Insights Today'
+    return render_template('sharepost.html', title=title)
