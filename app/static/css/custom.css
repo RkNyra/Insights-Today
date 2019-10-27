@@ -1,35 +1,46 @@
-body {font-family: "Lato", sans-serif;}
+.homeHeading {
+    font-family: 'Tangerine', cursive;
+    margin-bottom: 3vh;
+    background-color: #818181;
+}
 
 .sidebar {
   height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
+  position: sticky;
   background-color: #111;
-  overflow-x: hidden;
-  padding-top: 16px;
+  margin-top: 2vh;
+  padding-top: 2vh;
 }
 
 .sidebar a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 20px;
-  color: #818181;
+  color: #a1a1a1;
   display: block;
 }
 
 .sidebar a:hover {
-  color: #f1f1f1;
+  color: #faf5f5;
 }
 
-.main {
-  margin-left: 200px;
-  padding: 0px 10px;
+.grayBackground {
+    background-color: #7c7979;
+}
+.blackBackground {
+    background-color: #111;
+}
+.card {
+    margin-bottom: 3vh;
 }
 
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
+}
+@media screen and (height: 1024px) {
+  .forIpad {margin-top: -24vh;} 
+}
+@media screen and (height: 1366px) {
+  .forIpad {margin-top: -7vh;} 
 }
