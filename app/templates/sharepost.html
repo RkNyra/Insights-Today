@@ -1,35 +1,36 @@
-{% extends 'base.html'%} 
-{% import 'bootstrap/wtf.html' as wtf%} {% block
+{% extends 'base.html'%} {% import 'bootstrap/wtf.html' as wtf%} {% block
 content %}
 
 <div class="homeDiv">
-    <div class="">
-        <h3 class="homeHeading display-3">Insights Today</h3>
-    
-        <div class="card">
-          <div class="card-header">
-            Quote
-          </div>
-          
-          <div class="card-body">
-            <blockquote class="blockquote mb-0">
-              <p>A random quote thanks to the quotes api.</p>
-              <footer class="blockquote-footer">
-                Someone famous in <cite title="Source Title">Source Title</cite>
-              </footer>
-            </blockquote>
-          </div>
-        </div>
+  <div class="">
+    <h3 class="homeHeading display-3">Insights Today</h3>
+
+    <div class="card">
+      <div class="card-header">
+        Quote
       </div>
 
-
-      <!-- blog posts -->
-  <div class="row justify-content-center">
-
-    <h4 class="lead sharePost"><strong>Share your insight below...</strong>></h4>
-    <div class="col-md-10">
-            {{ wtf.quick_form(SharePostForm)}}
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>A random quote thanks to the quotes api.</p>
+          <footer class="blockquote-footer">
+            Someone famous in <cite title="Source Title">Source Title</cite>
+          </footer>
+        </blockquote>
+      </div>
     </div>
-</div>
+  </div>
 
+  <!-- blog posts -->
+  <div class="row justify-content-center">
+    <h4 class="lead sharePost">
+      <strong>Share your insight below...</strong>>
+    </h4>
+    <div class="col-md-10">
+      {{ wtf.quick_form(SharePostForm) }}
+    </div>
+  </div>
+
+</div>
 {% endblock %}
+
