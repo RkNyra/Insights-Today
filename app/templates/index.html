@@ -1,39 +1,46 @@
-{% extends 'base.html'%} {% import 'bootstrap/wtf.html' as wtf%} {% block
+{% extends 'base.html'%} 
+{% import 'bootstrap/wtf.html' as wtf%} {% block
 content %}
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-2 blackBackground"></div>
-    <div class="col-md-5 grayBackground forIpad">
-      <div class="card">
-        <h5 class="card-header">Topic title</h5>
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
-          </p>
-          <a href="#" class="btn btn-outline-primary">Read more...</a>
+<div class="homeDiv">
+    <div class="">
+        <h3 class="homeHeading display-3">Insights Today</h3>
+    
+        <div class="card">
+          <div class="card-header">
+            Quote
+          </div>
+          
+          <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <p>A random quote thanks to the quotes api.</p>
+              <footer class="blockquote-footer">
+                Someone famous in <cite title="Source Title">Source Title</cite>
+              </footer>
+            </blockquote>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-5 grayBackground forIpad">
-      <div class="card">
-        <h5 class="card-header">Topic title</h5>
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
-          </p>
-          <a href="#" class="btn btn-outline-primary">Read more...</a>
+
+
+      <!-- blog posts -->
+  <div class="row">
+
+      <div class="col-md-4 forIpad">
+        <div class="card">
+          <h5 class="card-header">Topic title</h5>
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">
+              With supporting text below as a natural lead-in to additional
+              content.
+            </p>
+            <a href="#" class="btn btn-outline-primary">Read more...</a>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="row">
-        <div class="col-md-2 blackBackground"></div>
-        <div class="col-md-5 grayBackground">
+
+      <div class="col-md-4  forIpad">
           <div class="card">
             <h5 class="card-header">Topic title</h5>
             <div class="card-body">
@@ -46,20 +53,23 @@ content %}
             </div>
           </div>
         </div>
-        <div class="col-md-5 grayBackground">
-          <div class="card">
-            <h5 class="card-header">Topic title</h5>
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">
-                With supporting text below as a natural lead-in to additional
-                content.
-              </p>
-              <a href="#" class="btn btn-outline-primary">Read more...</a>
-            </div>
+
+      <div class="col-md-4 forIpad">
+        <div class="card">
+          <h5 class="card-header">Topic title</h5>
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">
+              With supporting text below as a natural lead-in to additional
+              content.
+            </p>
+            <a href="#" class="btn btn-outline-primary">Read more...</a>
           </div>
         </div>
       </div>
+
+      </div>
+    <div >
 </div>
 
 {% endblock %}

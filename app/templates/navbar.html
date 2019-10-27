@@ -1,37 +1,48 @@
 <!-- Navbar on every page -->
-<div class="row">
-  <div class="col-md-2 blackBackground">
+<!-- <div class="row"> -->
+  <div class="col-md-2">
     <div class="sidebar">
-      <a href="#home"><i class="fa fa-fw fa-home"></i> Insights Today</a>
-      <a href="#topics"
-        ><i class="fa fa-fw fa-chevron-circle-down"></i> Topics</a
-      >
-      <a href="#postsomething"
-        ><i class="fa fa-fw fa-commenting"></i> Post Sometin</a
-      >
-      <a href="#myprofile"><i class="fa fa-fw fa-user"></i> Stl SuperG </a>
-      <a href="#register"><i class="fa fa-fw fa-pencil-square"></i> Register</a>
-      <a href="#login"> <i class="fa fa-fw fa-sign-in"></i> Log in</a>
-      <a href="#logout"> <i class="fa fa-fw fa-sign-out"></i> Log out</a>
-    </div>
-  </div>
-
-  <!-- content on every page -->
-  <div class="col-md-10 grayBackground">
-    <h3 class="homeHeading display-3">Insights Today</h3>
-
-    <div class="card">
-      <div class="card-header">
-        Quote
+      <div class="menu-list">
+        <a class="" href="#home"
+          ><i class="fa fa-fw fa-home"></i> Insights Today</a
+        >
+        <div class="nav-item dropdown" id="dropDown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            data-target="#topics"
+            aria-haspopup="true"
+            aria-expanded="false"
+            ><i class="fa fa-fw fa fa-list-ol"></i>
+            Topics
+          </a>
+          <ul class="sub-menu collapse" id="topics">
+            <li class="dropdown-menu subMenu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">TechSavy</a>
+              <p class="dropdown-divider"></p>
+              <a class="dropdown-item" href="#">MoneySmart </a>
+              <p class="dropdown-divider"></p>
+              <a class="dropdown-item" href="#">Life & Laughter </a>
+              <p class="dropdown-divider"></p>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <a href="#postsomething"
+            ><i class="fa fa-fw fa-commenting"></i> Post Something</a
+          >
+          <a href="#myprofile"><i class="fa fa-fw fa-user"></i> Stl SuperG </a>
+          <a href="#register"
+            ><i class="fa fa-fw fa-pencil-square"></i> Register</a
+          >
+          <a href="#login"> <i class="fa fa-fw fa-sign-in"></i> Log in</a>
+          <a href="#logout"> <i class="fa fa-fw fa-sign-out"></i> Log out</a>
+        </div>
       </div>
-      <div class="card-body">
-        <blockquote class="blockquote mb-0">
-          <p>A random quote thanks to the quotes api.</p>
-          <footer class="blockquote-footer">
-            Someone famous in <cite title="Source Title">Source Title</cite>
-          </footer>
-        </blockquote>
-      </div>
     </div>
-  </div>
+  
 </div>
+<!-- </div> -->

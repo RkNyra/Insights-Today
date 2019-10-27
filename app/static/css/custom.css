@@ -1,27 +1,46 @@
 .homeHeading {
     font-family: 'Tangerine', cursive;
     margin-bottom: 3vh;
-    background-color: #818181;
+    font-weight: bold;
+}
+.homeDiv {
+  margin-left:45vh;
+  margin-right: 30px;
 }
 
 .sidebar {
-  height: 100%;
-  position: sticky;
-  background-color: #111;
-  margin-top: 2vh;
-  padding-top: 2vh;
+    position: fixed;
+    background-color: #111;
+    margin: 0;
+    padding-top: 5vh;
+    margin-right: 20px;
+    overflow: auto;
+    height: 100%;
+    width: 42vh;
+    margin-left: -20px;
+  
 }
 
 .sidebar a {
-  padding: 6px 8px 6px 16px;
+  padding: 0px 8px 20px 16px;
   text-decoration: none;
   font-size: 20px;
-  color: #a1a1a1;
+  color: #fff;
   display: block;
 }
 
 .sidebar a:hover {
-  color: #faf5f5;
+  color: #cdfa07;
+}
+
+.subMenu {
+  background-color: #141414;
+  color: #fff;
+  padding: 5px 10px 15px 17px;
+}
+#topics li a:hover {
+  color: #cdfa07;
+  background-color: #111;
 }
 
 .grayBackground {
@@ -30,17 +49,16 @@
 .blackBackground {
     background-color: #111;
 }
+
 .card {
     margin-bottom: 3vh;
 }
+.spaceLeft {
+  margin-left: 25%;
+}
+
 
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
-}
-@media screen and (height: 1024px) {
-  .forIpad {margin-top: -24vh;} 
-}
-@media screen and (height: 1366px) {
-  .forIpad {margin-top: -7vh;} 
 }
