@@ -1,6 +1,6 @@
 from flask import render_template
-
 from . import main
+from .forms import SharePostForm
 
 
 #Views
@@ -19,10 +19,12 @@ def index():
 # sharepost page
 @main.route('/sharepost')
 def sharepost():
+    
+    form = SharePostForm()
 
     '''
     View share post page function that returns the post sharing page and its data
     '''
     
     title = 'Insights Today'
-    return render_template('sharepost.html', title=title)
+    return render_template('sharepost.html', title=title, SharePostForm=form)

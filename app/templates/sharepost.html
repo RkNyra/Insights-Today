@@ -24,52 +24,12 @@ content %}
 
 
       <!-- blog posts -->
-  <div class="row">
+  <div class="row justify-content-center">
 
-      <div class="col-md-4 forIpad">
-        <div class="card">
-          <h5 class="card-header">Topic title</h5>
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">
-              With supporting text below as a natural lead-in to additional
-              content.
-            </p>
-            <a href="#" class="btn btn-outline-primary">Read more...</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4  forIpad">
-          <div class="card">
-            <h5 class="card-header">Topic title</h5>
-            <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">
-                With supporting text below as a natural lead-in to additional
-                content.
-              </p>
-              <a href="#" class="btn btn-outline-primary">Read more...</a>
-            </div>
-          </div>
-        </div>
-
-      <div class="col-md-4 forIpad">
-        <div class="card">
-          <h5 class="card-header">Topic title</h5>
-          <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">
-              With supporting text below as a natural lead-in to additional
-              content.
-            </p>
-            <a href="#" class="btn btn-outline-primary">Read more...</a>
-          </div>
-        </div>
-      </div>
-
-      </div>
-    <div >
+    <h4 class="lead sharePost"><strong>Share your insight below...</strong>></h4>
+    <div class="col-md-10">
+            {{ wtf.quick_form(SharePostForm)}}
+    </div>
 </div>
 
 {% endblock %}

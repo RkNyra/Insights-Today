@@ -57,6 +57,10 @@
   margin-left: 25%;
 }
 
+.sharePost {
+  margin-top: 7vh;
+}
+
 
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
