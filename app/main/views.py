@@ -1,9 +1,11 @@
-from flask import render_template, request,redirect,url_for,abort
+import os
+from flask import render_template, request,redirect,url_for,abort, flash
 from . import main
 from ..models import User, Blogpost, Comment
 from .forms import SharePostForm, UpdateProfile,CommentForm
 from ..import db, photos
-from flask_login import login_required
+from flask_login import login_required, current_user
+from ..requests import get_quote
 
 
 #Views
@@ -15,9 +17,10 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
+    quote = get_quote()
     
     title = 'Insights Today'
-    return render_template('index.html', title=title)
+    return render_template('index.html', title=title, quote= quote)
 
 # share blogpost 
 @main.route('/sharepost', methods=['GET','POST'])
@@ -25,6 +28,8 @@ def sharepost():
     '''
     View share post page function that returns the post sharing page and its data
     '''
+    quote = get_quote()
+        
     form = SharePostForm()
     # blogposts = Blogpost.query.all()
     
@@ -36,7 +41,7 @@ def sharepost():
         return redirect(url_for('main.goToBlogposts'))
     
     title = 'Insights Today'
-    return render_template('sharepost.html', title=title, SharePostForm=form)
+    return render_template('sharepost.html', title=title, SharePostForm=form, quote=quote)
 
 # user profile page
 @main.route('/user/<uname>')
