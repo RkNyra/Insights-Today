@@ -60,6 +60,9 @@
 .sharePost, .register{
   margin-top: 7vh;
 }
+.errorPgh {
+  font-family: 'Philosopher', sans-serif;
+}
 
 
 @media screen and (max-height: 450px) {

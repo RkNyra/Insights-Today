@@ -9,6 +9,7 @@ from config import config_options
 
 bootstrap = Bootstrap()
 db = SQLAlchemy()
+
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'
@@ -23,9 +24,9 @@ def create_app(config_name):
     app.config.from_object(DevConfig)
 
     # Initializing Flask Extensions
-    bootstrap = Bootstrap(app)
+    bootstrap.init_app(app)
     fa = FontAwesome(app)
-    db = SQLAlchemy(app)
+    db.init_app(app)
     login_manager.init_app(app)
 
     # Registering the blueprint - main
