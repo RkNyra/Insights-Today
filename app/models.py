@@ -71,5 +71,5 @@ class Comment(db.Model):
     
     
     def __repr__(self):
-        return f'{self.comment}'
+        return f'{self.comment}, {self.users_id}, {self.blogpost_id}'
     

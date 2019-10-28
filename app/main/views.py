@@ -26,7 +26,7 @@ def sharepost():
     View share post page function that returns the post sharing page and its data
     '''
     form = SharePostForm()
-    blogposts = Blogpost.query.all()
+    # blogposts = Blogpost.query.all()
     
     if form.validate_on_submit():
         blogpost = Blogpost(category=form.topic.data, blogpost=form.content.data)
@@ -84,14 +84,14 @@ def update_pic(uname):
 
 
 # Redirect to blogpost page
-@main.route('/blogposts')
+@main.route('/blogposts', methods=['GET','POST'])
 def goToBlogposts():
     '''
     View blogposts page function that returns the pitches page and its details
     '''   
-    TechSavyPosts = Blogpost.query.filter_by(category='TechSavy').first()
-    MoneySmartPosts = Blogpost.query.filter_by(category='MoneySmart').first()
-    LifenLaughterPosts = Blogpost.query.filter_by(category='Life & Laughter').first()
+    TechSavyPosts = Blogpost.query.filter_by(category='TechSavy').all()
+    MoneySmartPosts = Blogpost.query.filter_by(category='MoneySmart').all()
+    LifenLaughterPosts = Blogpost.query.filter_by(category='Life & Laughter').all()
     
     comment_form = CommentForm()
     # comments = Blogpost.query.filter_by(blogpost_id=id)
@@ -103,21 +103,26 @@ def goToBlogposts():
     return render_template('/blogposts.html', TechSavyPosts=TechSavyPosts, MoneySmartPosts=MoneySmartPosts, LifenLaughterPosts=LifenLaughterPosts, comments = comments, CommentForm=comment_form, title=title)
 
 #posting comments
-@main.route('/blogpostcomments', methods = ['GET','POST'])
+@main.route('/blogposts', methods = ['GET','POST'])
 def postComments():
     '''
     View comments function that returns the blogposts page with the posted comments
     '''
+    print('===================================================')
     
     commentform = CommentForm()
+        
+    print('===================================================')
     
-    if form.validate_on_submit():
-        comment = Comment(comment=form.comment.data)
+    if commentform.validate_on_submit():
+        comment = Comment(comment=commentform.comment.data, blogpost_id=3, users_id = 2)
+        print(comment)
+        print('===================================================')
         db.session.add(comment)
         db.session.commit()
     
         return redirect(url_for('main.goToBlogposts'))
     
     title='Insights Today'
-    return render_template('/blogposts.html', TechSavyPosts=TechSavyPosts, MoneySmartPosts=MoneySmartPosts, LifenLaughterPosts=LifenLaughterPosts, comments = comments, CommentForm=comment_form, title=title)
+    return render_template('/blogposts.html', TechSavyPosts=TechSavyPosts, MoneySmartPosts=MoneySmartPosts, LifenLaughterPosts=LifenLaughterPosts, comment = comment, CommentForm=comment_form, title=title)
     
