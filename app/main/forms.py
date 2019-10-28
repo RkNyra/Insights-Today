@@ -10,3 +10,7 @@ class SharePostForm(FlaskForm):
     topic = SelectField('', choices=[('TechSavy', 'TechSavy'), ('MoneySmart','MoneySmart'), ('Life & Laughter', 'Life & Laughter')], validators=[Required()])
     content = TextAreaField('', validators=[Required()], render_kw={"placeholder": "Write your story here :)"})
     submit = SubmitField('Share')
+    
+class UpdateProfile(FlaskForm):
+    bio = TextAreaField('Tell us about you.',validators = [Required()])
+    submit = SubmitField('Submit')
