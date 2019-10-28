@@ -4,7 +4,7 @@ from flask_login import UserMixin
 from . import login_manager
 
 
-
+# User model
 class User(UserMixin,db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer,primary_key = True)
@@ -13,6 +13,10 @@ class User(UserMixin,db.Model):
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     pass_secure = db.Column(db.String(255))
+    blogposts = db.relationship('Blogpost',backref = 'user',lazy="dynamic")
+    comments = db.relationship('Comment',backref = 'comment',lazy="dynamic")
+
+
     
     @property
     def password(self):
@@ -33,3 +37,38 @@ class User(UserMixin,db.Model):
     
     def __repr__(self):
         return f'{self.username}'
+    
+
+# Blogpost Model
+class Blogpost(db.Model):
+    __tablename__='blogposts'
+    id = db.Column(db.Integer,primary_key = True)
+    blogpost = db.Column(db.String(700))
+    category = db.Column(db.String(255))
+    users_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+    comments = db.relationship('Comment',backref = 'blogpost',lazy="dynamic")
+    
+    def save_blogpost(self):
+        db.session.add(self)
+        db.session.commit()
+    
+    def __repr__(self):
+        return f'{self.blogpost}'
+    
+
+# Comment Model
+class Comment(db.Model):
+    __tablename__='comments'
+    id = db.Column(db.Integer,primary_key = True)
+    comment = db.Column(db.String(255))
+    users_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+    blogpost_id = db.Column(db.Integer,db.ForeignKey('blogposts.id'))
+
+    
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
+    
+    
+    def __repr__(self):
+        return f'{self.comment}'
