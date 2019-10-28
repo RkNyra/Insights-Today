@@ -1,8 +1,10 @@
+import os
 class Config:
     '''
     General configuration parent class
     '''
-    SECRET_KEY='insightsToday123'
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://rknyra:rknyra7@localhost/insights'
 
 
 
