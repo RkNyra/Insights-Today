@@ -20,11 +20,11 @@
           </a>
           <ul class="sub-menu collapse" id="topics">
             <li class="dropdown-menu subMenu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{url_for('main.goToBlogposts')}}">TechSavy</a>
+              <a class="dropdown-item" href="{{url_for('main.goToBlogposts', _anchor='tech')}}">TechSavy</a>
               <p class="dropdown-divider"></p>
-              <a class="dropdown-item" href="{{url_for('main.goToBlogposts')}}">MoneySmart </a>
+              <a class="dropdown-item" href="{{url_for('main.goToBlogposts', _anchor='money')}}">MoneySmart </a>
               <p class="dropdown-divider"></p>
-              <a class="dropdown-item" href="{{url_for('main.goToBlogposts')}}">Life & Laughter </a>
+              <a class="dropdown-item" href="{{url_for('main.goToBlogposts', _anchor='life')}}">Life & Laughter </a>
               <p class="dropdown-divider"></p>
             </li>
           </ul>
