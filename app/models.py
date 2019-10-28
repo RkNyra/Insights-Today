@@ -14,7 +14,7 @@ class User(UserMixin,db.Model):
     profile_pic_path = db.Column(db.String())
     pass_secure = db.Column(db.String(255))
     blogposts = db.relationship('Blogpost',backref = 'user',lazy="dynamic")
-    comments = db.relationship('Comment',backref = 'comment',lazy="dynamic")
+    comments = db.relationship('Comment',backref = 'user',lazy="dynamic")
 
 
     
