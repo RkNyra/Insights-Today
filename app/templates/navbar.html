@@ -2,7 +2,7 @@
   <div class="col-md-2">
     <div class="sidebar">
       <div class="menu-list">
-        <a class="" href="#home"
+        <a class="" href="/"
           ><i class="fa fa-fw fa-home"></i> Insights Today</a
         >
         <div class="nav-item dropdown" id="dropDown">
@@ -34,11 +34,11 @@
             ><i class="fa fa-fw fa-commenting"></i> Post Something</a
           >
           <a href="#myprofile"><i class="fa fa-fw fa-user"></i> Stl SuperG </a>
-          <a href="#register"
+          <a href="{{url_for('auth.register')}}"
             ><i class="fa fa-fw fa-pencil-square"></i> Register</a
           >
-          <a href="#login"> <i class="fa fa-fw fa-sign-in"></i> Log in</a>
-          <a href="#logout"> <i class="fa fa-fw fa-sign-out"></i> Log out</a>
+          <a href="{{url_for('auth.login')}}"> <i class="fa fa-fw fa-sign-in"></i> Log in</a>
+          <a href="{{url_for('auth.logout')}}"> <i class="fa fa-fw fa-sign-out"></i> Log out</a>
         </div>
       </div>
     </div>
