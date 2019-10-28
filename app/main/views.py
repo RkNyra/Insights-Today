@@ -1,7 +1,7 @@
 from flask import render_template, request,redirect,url_for,abort
 from . import main
-from ..models import User
-from .forms import SharePostForm, UpdateProfile
+from ..models import User, Blogpost, Comment
+from .forms import SharePostForm, UpdateProfile,CommentForm
 from ..import db, photos
 from flask_login import login_required
 
@@ -19,15 +19,21 @@ def index():
     title = 'Insights Today'
     return render_template('index.html', title=title)
 
-# sharepost page
-@main.route('/sharepost')
+# share blogpost 
+@main.route('/sharepost', methods=['GET','POST'])
 def sharepost():
-    
-    form = SharePostForm()
-
     '''
     View share post page function that returns the post sharing page and its data
     '''
+    form = SharePostForm()
+    blogposts = Blogpost.query.all()
+    
+    if form.validate_on_submit():
+        blogpost = Blogpost(category=form.topic.data, blogpost=form.content.data)
+        db.session.add(blogpost)
+        db.session.commit()
+    
+        return redirect(url_for('main.goToBlogposts'))
     
     title = 'Insights Today'
     return render_template('sharepost.html', title=title, SharePostForm=form)
@@ -60,7 +66,9 @@ def update_profile(uname):
         db.session.commit()
 
         return redirect(url_for('.profile',uname=user.username))
-    return render_template('profile/update.html',form =form, user=user)
+    
+    title = 'Insights Today'
+    return render_template('profile/update.html',form =form, user=user, title=title)
 
 # update prof pic
 @main.route('/user/<uname>/update/pic',methods= ['POST'])
@@ -73,3 +81,43 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
+
+
+# Redirect to blogpost page
+@main.route('/blogposts')
+def goToBlogposts():
+    '''
+    View blogposts page function that returns the pitches page and its details
+    '''   
+    TechSavyPosts = Blogpost.query.filter_by(category='TechSavy').first()
+    MoneySmartPosts = Blogpost.query.filter_by(category='MoneySmart').first()
+    LifenLaughterPosts = Blogpost.query.filter_by(category='Life & Laughter').first()
+    
+    comment_form = CommentForm()
+    # comments = Blogpost.query.filter_by(blogpost_id=id)
+    # comments = Comment.query.filter_by(blogpost_id=id).first()
+    comments = Comment.query.filter(Comment.blogpost_id > 0).all()
+
+    
+    title = 'Insights Today'
+    return render_template('/blogposts.html', TechSavyPosts=TechSavyPosts, MoneySmartPosts=MoneySmartPosts, LifenLaughterPosts=LifenLaughterPosts, comments = comments, CommentForm=comment_form, title=title)
+
+#posting comments
+@main.route('/blogpostcomments', methods = ['GET','POST'])
+def postComments():
+    '''
+    View comments function that returns the blogposts page with the posted comments
+    '''
+    
+    commentform = CommentForm()
+    
+    if form.validate_on_submit():
+        comment = Comment(comment=form.comment.data)
+        db.session.add(comment)
+        db.session.commit()
+    
+        return redirect(url_for('main.goToBlogposts'))
+    
+    title='Insights Today'
+    return render_template('/blogposts.html', TechSavyPosts=TechSavyPosts, MoneySmartPosts=MoneySmartPosts, LifenLaughterPosts=LifenLaughterPosts, comments = comments, CommentForm=comment_form, title=title)
+    

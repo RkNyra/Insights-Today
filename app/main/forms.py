@@ -14,3 +14,7 @@ class SharePostForm(FlaskForm):
 class UpdateProfile(FlaskForm):
     bio = TextAreaField('Tell us about you.',validators = [Required()])
     submit = SubmitField('Submit')
+    
+class CommentForm(FlaskForm):
+    comment = TextAreaField('Leave a comment',validators=[Required()], render_kw={"placeholder": "Post your comment"})
+    submit = SubmitField('Post Comment')
