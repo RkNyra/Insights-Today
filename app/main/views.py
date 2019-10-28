@@ -40,7 +40,8 @@ def profile(uname):
     if user is None:
         abort(404)
 
-    return render_template("profile/profile.html", user = user)
+    title = 'Insights Today: myProfile'
+    return render_template("profile/profile.html", user = user, title=title)
 
 # update profile page - update user bio
 @main.route('/user/<uname>/update',methods = ['GET','POST'])
@@ -59,7 +60,7 @@ def update_profile(uname):
         db.session.commit()
 
         return redirect(url_for('.profile',uname=user.username))
-    return render_template('profile/update.html',form =form)
+    return render_template('profile/update.html',form =form, user=user)
 
 # update prof pic
 @main.route('/user/<uname>/update/pic',methods= ['POST'])
